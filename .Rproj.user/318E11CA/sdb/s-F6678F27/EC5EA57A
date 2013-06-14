@@ -1,12 +1,12 @@
 {
-    "contents" : "###Run All for PoW Report\nsource(\"src/LoadLibraries.R\", echo=FALSE, verbose=FALSE) ##Load Libraries\nsource(\"src/Preprocess.R\", echo=FALSE, verbose=FALSE) ## Preprocess and Include Equivalencies\nsource(\"src/StateAverages.R\") ## Get state averages over quality\nsource(\"src/QualityAdjustment.R\") ## Quality Adjustment\nsource(\"src/QuantityDiscoutn.R\") ## Quantity Adjustment\nsource(\"src/TimePriceAverages.R\") ## State Price Averages and TimeSeries for State Price Averages\n\n\n\n",
+    "contents" : "###Run All for PoW Report\nsource(\"src/LoadLibraries.R\", echo=FALSE, verbose=FALSE) ##Load Libraries\nsource(\"src/Preprocess.R\", echo=FALSE, verbose=FALSE) ## Preprocess and Include Equivalencies\nsource(\"src/StateAverages.R\") ## Get state averages over quality\nsource(\"src/QualityAdjustment.R\") ## Quality Adjustment\nsource(\"src/QuantityDiscoutn.R\") ## Quantity Adjustment\nsource(\"src/TimePriceAverages.R\") ## State Price Averages and TimeSeries for State Price Averages\nsource(\"src/PriceIndex.R\") ##Generate Price Index\n\n\n",
     "created" : 1371147622260.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3656208601",
+    "hash" : "3664994511",
     "id" : "EC5EA57A",
-    "lastKnownWriteTime" : 1371172140,
+    "lastKnownWriteTime" : 1371173875,
     "path" : "~/R/PriceOfWeedReport/RUN_ALL.R",
     "properties" : {
         "tempName" : "Untitled3"

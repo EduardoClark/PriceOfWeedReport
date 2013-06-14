@@ -1,0 +1,16 @@
+{
+    "contents" : "##################################\n## Author:Eduardo Clark\n## Proyect: Price of Weed Report\n## Date: June, 2013\n##################################\n\n### Create State Average Functions\n\nDB$State <- substr(DB$State, 2, 1000) ##Trim leading Zero\nDB <- subset(DB, DB$OuncePrice < 1000 & DB$OuncePrice > 50)\nStatesList <- as.character(unique(DB$State)) #Create a State List\nStatesList <- sort(StatesList)\n\n\n###State Average Function\n\nStateAverage <- function(Location){\n  tmp <- Location\n  tmp1 <- subset(DB, DB$State == tmp)\n  tmp2 <- subset(tmp1, tmp1$Quality==\"high quality\")\n  tmp3 <- subset(tmp1, tmp1$Quality==\"medium quality\")\n  tmp4 <- subset(tmp1, tmp1$Quality==\"low quality\")\n  tmp2 <- mean(tmp2$OuncePrice)\n  tmp3 <- mean(tmp3$OuncePrice)\n  tmp4 <- mean(tmp4$OuncePrice)\n  tmp5 <- data.frame(State=Location, HQ=tmp2, MQ=tmp3,LQ=tmp4)\n  return(tmp5)\n}\n\n### Apply State Average Function to all states\nStateAverages <- ldply(lapply(StatesList, StateAverage))\n\n### Graph State Average density plots\ndens1 <- data.frame(Price=c(StateAverages$HQ, StateAverages$MQ, StateAverages$LQ),\n                    Quality=c(rep(\"HQ\", 50), rep(\"MQ\", 50), rep(\"LQ\", 50)))\nCairo(600, 600, file=\"plots/StateAverageDensity.png\", type=\"png\", bg=\"white\")\nggplot(dens1, aes(x = Price, fill = Quality)) + geom_density(alpha = 0.5) +\n  ylab(\"Densidad\") + xlab(\"Average Price\") + xlim(0,500)\ndev.off()\n\nremove(StateAverage, dens1)\n",
+    "created" : 1371173922794.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1601159019",
+    "id" : "4B63FDA9",
+    "lastKnownWriteTime" : 1371165026,
+    "path" : "~/R/PriceOfWeedReport/src/StateAverages.R",
+    "properties" : {
+        "tempName" : "Untitled4"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -7,6 +7,7 @@
 ~%2FR%2FPriceOfWeedReport%2Fsrc%2FLoadLibraries.R="5B6037D1"
 ~%2FR%2FPriceOfWeedReport%2Fsrc%2FMultiplotFunction.R="9C81AF13"
 ~%2FR%2FPriceOfWeedReport%2Fsrc%2FPreprocess.R="8F23190E"
+~%2FR%2FPriceOfWeedReport%2Fsrc%2FPriceIndex.R="C4E73AE4"
 ~%2FR%2FPriceOfWeedReport%2Fsrc%2FQualityAdjustment.R="597D22B5"
 ~%2FR%2FPriceOfWeedReport%2Fsrc%2FQuantityDiscoutn.R="593F70AA"
 ~%2FR%2FPriceOfWeedReport%2Fsrc%2FStateAverages.R="F430B15F"
