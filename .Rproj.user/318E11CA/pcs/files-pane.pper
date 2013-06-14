@@ -1,0 +1,9 @@
+{
+    "path" : "~/R/PriceOfWeedReport",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
