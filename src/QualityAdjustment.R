@@ -32,6 +32,7 @@ StateAverage <- function(Location){
 AdjustedStateAverages <- ldply(lapply(StatesList, StateAverage))
 
 ###Write CSV
-write.csv(QualityAdjustment, file="data-out//StateQualityAdjustment.csv", row.names=FALSE)
+write.csv(QualityAdjustment, file="data-out/StateQualityAdjustment.csv", row.names=FALSE)
+write.csv(AdjustedStateAverages, file="data-out/QualityAdjustmentStateAverages.csv", row.names=FALSE)
 remove(QualityAdjustment, StateAverage, StateAverages)
 

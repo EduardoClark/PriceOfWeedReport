@@ -33,7 +33,6 @@ StatePopulation$Weight <- StatePopulation$Weight / sum(StatePopulation$Weight)
 remove(MJIncidence)
 
 #Compute Weighted Averages
-PriceTimeSeries$State <- substring(PriceTimeSeries$State, 2) ##Trim Leading Zero
 PriceTimeSeries <- merge(PriceTimeSeries, StatePopulation, by="State", all.x=TRUE, all.y=FALSE)
 remove(StatePopulation)
 Index <- weighted.mean(unlist(PriceTimeSeries[2]), PriceTimeSeries$Weight, na.rm=TRUE)
@@ -67,5 +66,11 @@ HPFilter <- c(unlist(hpfilter(G1$PriceIndex[1:33],freq=1)[2]), ## Include adjust
 G1$Adjusted <- HPFilter
 remove(HPFilter)
 
+Cairo(1200, 1000, file="plots/PriceIndexTimeSeries.png", type="png", bg="white")
 ggplot(data=G1, aes(x=Month, y=Adjusted, group=State, color=State )) +
   geom_line() + ylim(0,400) + geom_point()
+dev.off()
+
+write.csv(G1,"data-out/TimeSeriesIndex.csv", row.names=FALSE)
+write.csv(PriceTimeSeries, "data-out/PriceTimeSeries.csv", row.names=FALSE)
+remove(California, Colorado, Months, Washington, G1)
